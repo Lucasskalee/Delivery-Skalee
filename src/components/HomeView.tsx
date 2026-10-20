@@ -44,6 +44,11 @@ export function HomeView({
       />
 
       <div className="home-content-scroll">
+        <section className="home-welcome" aria-labelledby="welcome-title">
+          <p className="home-eyebrow">SEU BAIRRO, NA PALMA DA MÃO</p>
+          <h1 id="welcome-title">O que vai ser<br />de bom hoje?</h1>
+          <p>Seu próximo favorito está aqui pertinho.</p>
+        </section>
         {/* 2. Grade de categorias com ícones ilustrados 3D (2 fileiras x 5 itens) */}
         <CategoryGrid onSelectCategory={onSelectCategory} />
 
@@ -61,7 +66,7 @@ export function HomeView({
           <section className="discovery-section" aria-labelledby="drinks-discovery-title">
             <div className="section-title-row">
               <h3 id="drinks-discovery-title" className="home-section-title">
-                Bebidas & Conveniência · Entrega Rápida
+                Geladas e a caminho
               </h3>
               <span className="section-badge-express">⚡ Em até 25 min</span>
             </div>
@@ -81,7 +86,7 @@ export function HomeView({
           <section className="discovery-section" aria-labelledby="food-discovery-title">
             <div className="section-title-row">
               <h3 id="food-discovery-title" className="home-section-title">
-                Restaurantes, Burgers & Pizzas
+                Uma pausa para comer bem
               </h3>
             </div>
             <div className="discovery-grid">
@@ -96,23 +101,7 @@ export function HomeView({
           </section>
         ) : null}
 
-        <section className="discovery-section" aria-labelledby="all-partners-title">
-          <div className="section-title-row">
-            <h3 id="all-partners-title" className="home-section-title">
-              Todos os Parceiros Disponíveis
-            </h3>
-            <span className="section-hint">{partners.length} lojas abertas</span>
-          </div>
-          <div className="discovery-grid">
-            {partners.map((partner) => (
-              <PartnerCard
-                key={partner.id}
-                partner={partner}
-                onSelect={onSelectPartner}
-              />
-            ))}
-          </div>
-        </section>
+
       </div>
     </div>
   );

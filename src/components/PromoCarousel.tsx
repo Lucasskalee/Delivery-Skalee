@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export interface PromoSlide {
   id: string;
@@ -13,10 +13,10 @@ export interface PromoSlide {
 const PROMO_SLIDES: readonly PromoSlide[] = [
   {
     id: "promo-drinks",
-    tag: "⚡ Skalee Express · Demonstrativo",
-    headline: "Bebidas estupidamente geladas em até 25 min",
-    subtext: "Packs de cerveja, destilados, gelo filtrado 5kg e snacks para sua conveniência.",
-    buttonLabel: "Pedir no Skalee Express →",
+    tag: "SKALEE EXPRESS · DEMONSTRAÇÃO",
+    headline: "Sua bebida gelada. Seu momento perfeito.",
+    subtext: "Bebidas, gelo e petiscos sem sair de onde você está.",
+    buttonLabel: "Explorar bebidas →",
     targetPartnerId: "partner-drinks-express",
     themeClass: "slide-blue",
   },
@@ -25,7 +25,8 @@ const PROMO_SLIDES: readonly PromoSlide[] = [
     tag: "🚚 Frete Otimizado · Demonstrativo",
     headline: "Entrega grátis a partir do valor mínimo",
     subtext: "Aproveite frete grátis em parceiros participantes ao atingir a meta da sacola.",
-    buttonLabel: "Ver Lojas com Frete Grátis →",
+    buttonLabel: "Conhecer o Skalee Express →",
+    targetPartnerId: "partner-drinks-express",
     themeClass: "slide-metallic",
   },
   {
@@ -46,14 +47,6 @@ interface PromoCarouselProps {
 export function PromoCarousel({ onSlideAction }: PromoCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Rotação suave demonstrativa a cada 5 segundos
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % PROMO_SLIDES.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
   const currentSlide = PROMO_SLIDES[activeIndex] ?? PROMO_SLIDES[0]!;
 
   return (
@@ -72,15 +65,14 @@ export function PromoCarousel({ onSlideAction }: PromoCarouselProps) {
           </button>
         </div>
 
-        <div className="carousel-dots-row" role="tablist" aria-label="Controles do carrossel">
+        <div className="carousel-dots-row" role="group" aria-label="Controles do carrossel">
           {PROMO_SLIDES.map((slide, idx) => (
             <button
               key={slide.id}
               type="button"
               className={`carousel-dot ${idx === activeIndex ? "active" : ""}`}
               onClick={() => setActiveIndex(idx)}
-              role="tab"
-              aria-selected={idx === activeIndex}
+              aria-pressed={idx === activeIndex}
               aria-label={`Ir para banner ${idx + 1}: ${slide.headline}`}
             />
           ))}

@@ -1,6 +1,6 @@
 ---
 name: Skalee Delivery Design System
-version: 1.1.0
+version: 1.2.0
 platform: Web / Mobile-First / Capacitor Android
 colors:
   primary: "#0284c7"
@@ -232,3 +232,11 @@ Ao criar ou editar qualquer interface, componente ou estilo no **Skalee Delivery
 4. **Garantir 44x44px para Toques**: Todo botão ou área clicável deve possuir tamanho mínimo de 44x44px.
 5. **Não Misturar Lógica com Apresentação**: Componentes visuais (`src/components/**`) não devem acessar clientes de dados de baixo nível; utilize os serviços de domínio (`src/services/**`).
 6. **Preservar a Identidade Skalee**: Não substitua os padrões de cor azul elétrico e metálico nem tente copiar identidades visuais de marcas de terceiros.
+
+
+## 9. Refinamento da vitrine
+
+- A Home abre com saudação editorial, seguida de categorias, banner manual e descoberta por segmento, sem duplicar a lista inteira de parceiros.
+- Fotografias de segmento ficam em `public/images/`, são decorativas e identificadas como ilustrativas. Não representam produtos ou lojas reais.
+- `src/storefront.css` concentra os refinamentos da vitrine usando os tokens acima. A grade de lojas possui duas colunas a partir de 540px e uma coluna no celular.
+- O carrossel não avança automaticamente. Seus seletores são botões de 44x44px com estado `aria-pressed`, permitindo leitura sem limite de tempo.

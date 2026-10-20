@@ -16,6 +16,11 @@ export function HomeHeader({
   return (
     <header className="home-top-header" aria-label="Cabeçalho principal do usuário">
       <div className="home-header-left">
+        <span className="skalee-brand" aria-label="Skalee Delivery">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M18 10h-6a4 4 0 0 0 0 8h3a4 4 0 0 1 0 8H8M20 15V6m0 0h8m-8 0 8 9" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
         <div className="user-greeting-box">
           <span className="greeting-sub">Entregar em</span>
           <button

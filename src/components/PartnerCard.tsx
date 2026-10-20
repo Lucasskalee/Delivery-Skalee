@@ -18,6 +18,16 @@ export function PartnerCard({ partner, onSelect }: PartnerCardProps) {
       className={`partner-card ${partner.status === "closed" ? "partner-closed" : ""}`}
       aria-labelledby={`partner-name-${partner.id}`}
     >
+      <div className="partner-cover">
+        <img
+          src={`${import.meta.env.BASE_URL}images/${partner.segment === "drinks_convenience" ? "drinks" : partner.segment === "restaurants" ? "bowls" : partner.segment}.jpg`}
+          alt=""
+          width="960"
+          height="540"
+          loading="lazy"
+        />
+        <span className="partner-photo-note">Imagem ilustrativa</span>
+      </div>
       <div className="partner-card-body">
         <div className="partner-card-top">
           <span className="partner-segment-tag">
